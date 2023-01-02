@@ -1,10 +1,10 @@
 const express = require("express");
 const menData = require("../Models/men.model");
-const app = express.Router();
+const menRouter = express.Router();
 
-app.get("/", async (req, res) => {
+menRouter.get("/", async (req, res) => {
   let data = await menData.find({});
   res.send(data);
 });
 
-module.exports = app;
+module.exports = menRouter;

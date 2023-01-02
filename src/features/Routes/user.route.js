@@ -3,9 +3,9 @@ const express = require("express");
 const { UserSchema } = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 const bycrypt = require("bcrypt");
-const app = express.Router();
+const userRouter = express.Router();
 
-app.post("/signup", async (req, res) => {
+userRouter.post("/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
     let oldUser = await UserSchema.findOne({ email });
@@ -21,7 +21,7 @@ app.post("/signup", async (req, res) => {
     res.send(e.message);
   }
 });
-app.post("/login", async (req, res) => {
+userRouter.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     let user = await UserSchema.findOne({ email });
@@ -42,4 +42,4 @@ app.post("/login", async (req, res) => {
     res.send(e.message);
   }
 });
-module.exports = app;
+module.exports = userRouter;

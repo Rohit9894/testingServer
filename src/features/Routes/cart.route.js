@@ -1,8 +1,8 @@
 const express = require("express");
 const cartData = require("../Models/cart.model");
-const app = express.Router();
+const cartRouter = express.Router();
 
-app.post("/", async (req, res) => {
+cartRouter.post("/", async (req, res) => {
   console.log("hello");
   try {
     const { body } = req;
@@ -13,4 +13,4 @@ app.post("/", async (req, res) => {
     res.send(e.message);
   }
 });
-module.exports = app;
+module.exports = cartRouter;
