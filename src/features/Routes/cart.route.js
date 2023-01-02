@@ -13,4 +13,13 @@ cartRouter.post("/", async (req, res) => {
     res.send(e.message);
   }
 });
+cartRouter.get("/", async (req, res) => {
+  try {
+    let data = await cartData.find({});
+    res.send(data);
+  } catch (e) {
+    res.send(e.message);
+  }
+});
+
 module.exports = cartRouter;
