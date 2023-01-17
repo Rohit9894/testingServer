@@ -4,7 +4,7 @@ const cors = require("cors");
 const connect = require("./src/config/db");
 const userRoute = require("./src/features/Routes/user.route");
 const menRoute = require("./src/features/Routes/men.route");
-// const cartRoute = require("./src/features/Routes/cart.route");
+const cartRoute = require("./src/features/Routes/cart.route");
 const app = express();
 app.use(
   cors({
@@ -14,7 +14,7 @@ app.use(
 app.use(express.json());
 app.use("/user", userRoute);
 app.use("/men", menRoute);
-// app.use("/cart", cartRoute);
+app.use("/cart", cartRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello");
